@@ -1,10 +1,10 @@
 <?php
  
 
-$servername = "127.0.0.1";  // IP, на котором работает MariaDB
-$username = "root";  // Имя пользователя
-$password = "kali";  // Пароль
-$dbName = "website";  // Название базы данных
+$servername = "127.0.0.1";  
+$username = "root";  
+$password = "kali";  
+$dbName = "website";  
  
 
 $link = mysqli_connect($servername, $username, $password);
