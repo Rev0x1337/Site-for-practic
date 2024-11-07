@@ -1,17 +1,12 @@
 <?php
-// Опять подключаемся к БД
 $link = mysqli_connect('127.0.0.1', 'root', 'kali', 'website');
  
-// Берем значения id из GET-запроса, то есть то, что лежит в URL в ?id=<значение>
 $id = $_GET['id'];
-// SQL-запрос, который ищет в таблице постов пост со значением id из URL
 $sql = "SELECT * FROM posts WHERE id=$id";
-// Результат запроса
 $res = mysqli_query($link, $sql);
 if (!$res) {
    printf(mysqli_error($link));
 }
-// Достаем значения из $res и отправляем их в переменные $title и $main_text
 $rows = mysqli_fetch_array($res);
 $title = $rows['title'];
 $main_text = $rows['main_text'];
@@ -29,7 +24,6 @@ $main_text = $rows['main_text'];
 <body>
    <div class="container mt-4" align="center">
        <?php
-       // Выводим то, что вернул SQL-запрос
        echo "<h1> $title </h1>";
        echo "<p> $main_text </p>";
        ?>
