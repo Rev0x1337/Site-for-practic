@@ -2,19 +2,14 @@
 if (!isset($_COOKIE['User'])) {
     header("Location: login.php");
  } 
-// Подключаемся к базе данных
 $link = mysqli_connect('127.0.0.1', 'root', 'kali', 'website');
  
-// Получаем из GET-запроса id пользователя
 $user_id = $_GET['id'];
  
-// Если в GET-запросе отсутствует параметр id, то редиректим на 404
 if (!isset($user_id)) {
    header("Location: /404");
 } else {
-   // SQL-запрос, который ищет конкретного пользователя по id
    $sql = "SELECT * FROM users WHERE id='$user_id'";
-   // Такая же конструкция, как и в index.php. То есть, в $res приходит результат работы функции mysqli_query, а затем с помощью mysqli_fetch_array достаем значения поиска
    $res = mysqli_query($link, $sql);
    $rows = mysqli_fetch_array($res);
 }
