@@ -9,7 +9,6 @@
 </head>
 <body>
    <div class="container mt-4" align="center">
-       <!-- Выводим значение из массива $_COOKIE, в нашем случае - это имя пользователя, чтобы сделать приветствие -->
        <h1> Welcome, <?php echo $_COOKIE['User']; ?> </h1>
        <form method="POST" action="profile.php">
            <input class="form-control" type="text" name="title" placeholder="Title">
