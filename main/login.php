@@ -33,12 +33,8 @@ if (isset($_POST['submit'])) {
    $username = $_POST['username'];
    $pass = $_POST['password'];
    if (!$username || !$pass) die("Please, input all values!");
-   // SQL-запрос, который возвращает всех пользователей с именем и паролем, которые
-   // были использованы в форме логина
    $sql = "SELECT * FROM users WHERE username='$username' AND pass='$pass'";
    $results = mysqli_query($link, $sql);
-   // Если результаты были найдены, то устанавливается куки файл, который действует один час,
-   // а затем идет редирект с помощью функции header на файл profile.php
    if (mysqli_num_rows($results) == 1) {
      setcookie("User", $username, time()+3600);
      header('location: profile.php');
